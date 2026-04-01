@@ -39,7 +39,8 @@ export function useTailoring(cvData: CVData) {
 
     try {
       const raw = await tailorCV(jobDescription, i18n.language)
-      const parsed = JSON.parse(raw) as { summary: string; experience: { company: string; highlights: string[] }[] }
+      const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
+      const parsed = JSON.parse(cleaned) as { summary: string; experience: { company: string; highlights: string[] }[] }
       const matchScore = calculateMatchScore(jobDescription, cvData)
       setResult({ ...parsed, matchScore })
     } catch (err) {

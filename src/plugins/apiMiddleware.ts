@@ -65,6 +65,30 @@ Rules:
 - Do not fabricate information not present in the original CV
 - Make the language more relevant to the job description keywords`
 
+const KEYWORD_OPTIMIZER_SYSTEM = `You are an ATS (Applicant Tracking System) optimization specialist.
+
+Given a job description and a candidate's CV data, identify terms/phrases used in the job description that could replace similar but differently-worded terms in the CV to improve keyword alignment.
+
+Return ONLY valid JSON — no markdown, no explanation, no code blocks. Format:
+{
+  "suggestions": [
+    {
+      "cv_term": "exact phrase currently in the CV",
+      "jd_term": "equivalent phrase from the job description",
+      "location": "where in the CV (e.g. Skills, Summary, Experience at Company X)"
+    }
+  ]
+}
+
+Rules:
+- cv_term must be an exact substring that appears verbatim in the CV data
+- jd_term must come directly from the job description
+- Only suggest where meaning is similar but wording differs (not identical matches)
+- Do not suggest replacements that change the factual meaning
+- Aim for 5 to 15 high-impact suggestions
+- Prioritize: technical skills, tools, methodologies, role titles, frameworks
+- Skip generic words like "team", "work", "good"`
+
 function buildTailoringUserPrompt(cvData: object, jobDescription: string): string {
   return `Job Description:\n${jobDescription}\n\nCV Data:\n${JSON.stringify(cvData, null, 2)}`
 }
@@ -185,7 +209,63 @@ async function handleTailor(
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: TAILORING_SYSTEM }] },
           contents: [{ role: 'user', parts: [{ text: buildTailoringUserPrompt(cvData, body.jobDescription) }] }],
-          generationConfig: { maxOutputTokens: 2048 },
+          generationConfig: { maxOutputTokens: 8192 },
+        }),
+      }
+    )
+  } catch (err) {
+    return sendError(res, 502, `Upstream fetch failed: ${(err as Error).message}`)
+  }
+
+  if (!upstream.ok) {
+    return sendError(res, upstream.status, `Upstream error: ${upstream.status}`)
+  }
+
+  const data = await upstream.json() as {
+    candidates?: { content?: { parts?: { text?: string }[] } }[]
+  }
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text
+  if (!text) return sendError(res, 502, 'Empty response from Gemini')
+
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify({ text }))
+}
+
+async function handleKeywordOptimize(
+  req: IncomingMessage,
+  res: ServerResponse,
+  next: Connect.NextFunction,
+  root: string,
+  apiKey: string
+) {
+  if (req.method !== 'POST') return next()
+
+  if (!apiKey) return sendError(res, 500, 'GEMINI_API_KEY not set')
+
+  let body: TailorRequestBody
+  try {
+    body = await parseBody(req) as TailorRequestBody
+  } catch {
+    return sendError(res, 400, 'Invalid JSON body')
+  }
+
+  if (!body.jobDescription?.trim()) {
+    return sendError(res, 400, 'jobDescription required')
+  }
+
+  const cvData = loadCVData(root, body.language ?? 'en')
+
+  let upstream: Response
+  try {
+    upstream = await fetch(
+      `${BASE_URL}/${MODEL}:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: KEYWORD_OPTIMIZER_SYSTEM }] },
+          contents: [{ role: 'user', parts: [{ text: buildTailoringUserPrompt(cvData, body.jobDescription) }] }],
+          generationConfig: { maxOutputTokens: 8192, temperature: 0.2 },
         }),
       }
     )
@@ -215,6 +295,9 @@ function registerMiddleware(app: Connect.Server, root: string, apiKey: string) {
   })
   app.use('/api/tailor', (req, res, next) => {
     handleTailor(req, res, next, root, apiKey).catch(next)
+  })
+  app.use('/api/keyword-optimize', (req, res, next) => {
+    handleKeywordOptimize(req, res, next, root, apiKey).catch(next)
   })
 }
 

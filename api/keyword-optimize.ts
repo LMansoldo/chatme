@@ -6,26 +6,34 @@ export const config = { runtime: 'edge' }
 const MODEL = 'gemini-3-flash-preview'
 const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models'
 
-interface TailorRequestBody {
+interface RequestBody {
   jobDescription: string
   language: string
 }
 
-const SYSTEM_PROMPT = `You are a professional resume writer. Given a job description and a candidate's CV data, \
-rewrite the summary and experience highlights to better align with the job requirements.
+const SYSTEM_PROMPT = `You are an ATS (Applicant Tracking System) optimization specialist.
 
-Return ONLY valid JSON — no markdown, no explanation, no code blocks. The JSON must match this exact structure:
+Given a job description and a candidate's CV data, identify terms/phrases used in the job description that could replace similar but differently-worded terms in the CV to improve keyword alignment.
+
+Return ONLY valid JSON — no markdown, no explanation, no code blocks. Format:
 {
-  "summary": "rewritten summary string",
-  "experience": [
-    { "company": "company name", "highlights": ["highlight 1", "highlight 2"] }
+  "suggestions": [
+    {
+      "cv_term": "exact phrase currently in the CV",
+      "jd_term": "equivalent phrase from the job description",
+      "location": "where in the CV (e.g. Skills, Summary, Experience at Company X)"
+    }
   ]
 }
 
 Rules:
-- Keep the same number of highlights per company as in the original
-- Do not fabricate information not present in the original CV
-- Make the language more relevant to the job description keywords`
+- cv_term must be an exact substring that appears verbatim in the CV data
+- jd_term must come directly from the job description
+- Only suggest where meaning is similar but wording differs (not identical matches)
+- Do not suggest replacements that change the factual meaning
+- Aim for 5 to 15 high-impact suggestions
+- Prioritize: technical skills, tools, methodologies, role titles, frameworks
+- Skip generic words like "team", "work", "good"`
 
 function getCVData(lang: string): object {
   return lang === 'pt-BR' ? ptBRData : enData
@@ -44,7 +52,7 @@ export default async function handler(req: Request): Promise<Response> {
     })
   }
 
-  let body: TailorRequestBody
+  let body: RequestBody
   try {
     body = await req.json()
   } catch {
@@ -70,7 +78,7 @@ export default async function handler(req: Request): Promise<Response> {
             role: 'user',
             parts: [{ text: `Job Description:\n${body.jobDescription}\n\nCV Data:\n${JSON.stringify(cvData, null, 2)}` }],
           }],
-          generationConfig: { maxOutputTokens: 8192 },
+          generationConfig: { maxOutputTokens: 8192, temperature: 0.2 },
         }),
       }
     )

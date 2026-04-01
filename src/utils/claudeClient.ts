@@ -67,6 +67,26 @@ export async function streamChat(
   callbacks.onDone()
 }
 
+export async function optimizeKeywords(
+  jobDescription: string,
+  language: string
+): Promise<string> {
+  const response = await fetch('/api/keyword-optimize', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jobDescription, language }),
+  })
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: response.statusText })) as { error: string }
+    throw new Error(err.error ?? `API error: ${response.status}`)
+  }
+
+  const data = await response.json() as { text: string }
+  if (!data.text) throw new Error('Empty response from server')
+  return data.text
+}
+
 export async function tailorCV(
   jobDescription: string,
   language: string

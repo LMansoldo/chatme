@@ -70,15 +70,15 @@
       "location": "Brasília, Brasil",
       "period": "Abr 2022 - Abr 2025",
       "highlights": [
-        { "text": "Liderou o desenvolvimento de MVP para gestão de contas bancárias, investimentos e participação societária com Svelte, TypeScript, SCSS, Tailwind, Vite, DevContainer e Jest — reduzindo problemas de ciclo de vida em 90%.", "category": "architecture" },
-        { "text": "Entregou PWA para gestão de despesas, transferências e investimentos imobiliários com Svelte, TypeScript, SCSS, Tailwind, Vite, Playwright e Jest — reduzindo o tempo de carregamento em 40% com Lazy Loading e code splitting.", "category": "ui" },
-        { "text": "Projetou e implementou biblioteca de componentes com Svelte, Tailwind, Vite, Jest e Storybook — reduzindo o tempo de desenvolvimento da sprint em 70%.", "category": "architecture" },
+        { "text": "Liderei o desenvolvimento de MVP para gestão de contas bancárias, investimentos e participação societária com Svelte, TypeScript, SCSS, Tailwind, Vite, DevContainer e Jest — reduzindo problemas de ciclo de vida em 90%.", "category": "architecture" },
+        { "text": "Entreguei PWA para gestão de despesas, transferências e investimentos imobiliários com Svelte, TypeScript, SCSS, Tailwind, Vite, Playwright e Jest — reduzindo o tempo de carregamento em 40% com Lazy Loading e code splitting.", "category": "ui" },
+        { "text": "Projetei e implementei biblioteca de componentes com Svelte, Tailwind, Vite, Jest e Storybook — reduzindo o tempo de desenvolvimento da sprint em 70%.", "category": "architecture" },
         { "text": "Implementou suite de componentes para documentar endpoints com Svelte, TypeScript, SCSS, Tailwind, Storybook, Vite e Markdown — com melhor performance que Docusaurus + React.", "category": "architecture" },
-        { "text": "Liderou plataforma de documentação interativa com abordagem de microfrontend usando React, Docusaurus, Widdershins, Webpack, Svelte, TypeScript e PostCSS.", "category": "architecture" },
-        { "text": "Construiu PWA de alta performance para gestão de cartão de crédito, pontos, pagamentos e grupos de orçamento com Svelte, TypeScript, SCSS, Tailwind, Vite e Storybook — reduzindo o tempo de sprint em 70% com biblioteca própria no lugar do Material-UI.", "category": "ui" },
+        { "text": "Liderei plataforma de documentação interativa com abordagem de microfrontend usando React, Docusaurus, Widdershins, Webpack, Svelte, TypeScript e PostCSS.", "category": "architecture" },
+        { "text": "Construí PWA de alta performance para gestão de cartão de crédito, pontos, pagamentos e grupos de orçamento com Svelte, TypeScript, SCSS, Tailwind, Vite e Storybook — reduzindo o tempo de sprint em 70% com biblioteca própria no lugar do Material-UI.", "category": "ui" },
         { "text": "Refatorou a plataforma de documentação estática com Svelte, Vite, TypeScript, PostCSS e Tailwind para processar specs OpenAPI — reduzindo o primeiro carregamento em 60% e o tempo de execução dos scripts de 11s para 1s via SSR e Lazy Loading.", "category": "architecture" },
-        { "text": "Construiu app de documentação SSR com Svelte, Qwik, React e Astro para comparar performance, gerenciamento de estado e tamanho de bundle — capaz de gerar páginas estáticas com componentes CRUD a partir de um JSON.", "category": "architecture" },
-        { "text": "Criou pacote NPM com funcionalidades principais de documentação estática, reutilizável em React, Vue.js, Svelte e Angular — construído com Vite, TypeScript, Jest e Salt-DS.", "category": "architecture" }
+        { "text": "Construí app de documentação SSR com Svelte, Qwik, React e Astro para comparar performance, gerenciamento de estado e tamanho de bundle — capaz de gerar páginas estáticas com componentes CRUD a partir de um JSON.", "category": "architecture" },
+        { "text": "Criei pacote NPM com funcionalidades principais de documentação estática, reutilizável em React, Vue.js, Svelte e Angular — construído com Vite, TypeScript, Jest e Salt-DS.", "category": "architecture" }
       ]
     },
     {
@@ -87,8 +87,8 @@
       "location": "Rio de Janeiro, Brasil",
       "period": "Set 2021 - Abr 2022",
       "highlights": [
-        { "text": "Manteve e aprimorou sistemas embarcados para dispositivos de pagamento.", "category": "integration" },
-        { "text": "Utilizou Svelte, JavaScript e Docker para entregar aplicações escaláveis, reduzindo problemas em telas pequenas em 70%.", "category": "devops" }
+        { "text": "Mantive e aprimorei sistemas embarcados para dispositivos de pagamento.", "category": "integration" },
+        { "text": "Utilizei Svelte, JavaScript e Docker para entregar aplicações escaláveis, reduzindo problemas em telas pequenas em 70%.", "category": "devops" }
       ]
     },
     {
@@ -97,9 +97,9 @@
       "location": "São Paulo, Brasil",
       "period": "Abr 2020 - Set 2021",
       "highlights": [
-        { "text": "Criou landing pages para o BTG Pactual usando React, Redux, Gatsby, Styled Components e TypeScript.", "category": "ui" },
-        { "text": "Desenvolveu PWAs para visualização de tendências de dados públicos e privados com React, Redux, Styled Components, D3 Charts e pipeline completo de CI/CD com Jenkins.", "category": "data" },
-        { "text": "Desenvolveu uma API com Node.js e MongoDB para buscar e retornar tendências de dados.", "category": "integration" }
+        { "text": "Criei landing pages para o BTG Pactual usando React, Redux, Gatsby, Styled Components e TypeScript.", "category": "ui" },
+        { "text": "Desenvolvi PWAs para visualização de tendências de dados públicos e privados com React, Redux, Styled Components, D3 Charts e pipeline completo de CI/CD com Jenkins.", "category": "data" },
+        { "text": "Desenvolvi uma API com Node.js e MongoDB para buscar e retornar tendências de dados.", "category": "integration" }
       ]
     },
     {
@@ -108,8 +108,8 @@
       "location": "Rio de Janeiro, Brasil",
       "period": "Jun 2019 - Mar 2020",
       "highlights": [
-        { "text": "Construiu app de cupons de desconto com foco em coleta de dados e insights para parceiros do setor usando React, Next.js e Styled Components.", "category": "data" },
-        { "text": "Construiu design system que melhorou o tempo de desenvolvimento em 40% usando React, TypeScript, Storybook, Figma e Jest.", "category": "architecture" }
+        { "text": "Construí app de cupons de desconto com foco em coleta de dados e insights para parceiros do setor usando React, Next.js e Styled Components.", "category": "data" },
+        { "text": "Construí design system que melhorou o tempo de desenvolvimento em 40% usando React, TypeScript, Storybook, Figma e Jest.", "category": "architecture" }
       ]
     },
     {
@@ -118,7 +118,7 @@
       "location": "Rio de Janeiro, Brasil",
       "period": "Jul 2018 - Jun 2019",
       "highlights": [
-        { "text": "Projetou e implementou temas e plugins personalizados para WordPress e Moodle.", "category": "ui" }
+        { "text": "Projetei e implementei temas e plugins personalizados para WordPress e Moodle.", "category": "ui" }
       ]
     }
   ],

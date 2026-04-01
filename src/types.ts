@@ -74,6 +74,16 @@ export interface ExportSection {
   education: boolean
 }
 
+export interface KeywordSuggestion {
+  cv_term: string
+  jd_term: string
+  location: string
+}
+
+export interface KeywordOptimizerResult {
+  suggestions: KeywordSuggestion[]
+}
+
 export interface MatchScore {
   total: number
   technologies: number
