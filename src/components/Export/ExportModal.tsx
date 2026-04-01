@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
 import type { ExportSection } from '../../types'
 import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
 import { downloadCvPdf } from '../../utils/pdfGenerator'
 import { useCV } from '../../hooks/useCV'
 import { Button } from '../ui/Button'
-
-type PreviewTab = 'edit' | 'preview'
+import { MarkdownEditorModal } from '../ui/MarkdownEditorModal'
 
 export function ExportModal() {
   const { t } = useTranslation()
@@ -26,48 +24,14 @@ export function ExportModal() {
     experience: true,
     education: true,
   })
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false)
-  const [activeTab, setActiveTab] = useState<PreviewTab>('edit')
-  const [editedMarkdown, setEditedMarkdown] = useState('')
-  const [originalMarkdown, setOriginalMarkdown] = useState('')
-  const [downloadedMd, setDownloadedMd] = useState(false)
-  const [downloadedPdf, setDownloadedPdf] = useState(false)
+  const [editorMarkdown, setEditorMarkdown] = useState<string | null>(null)
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
 
   const toggleSection = (key: keyof ExportSection) => {
     setSections(prev => ({ ...prev, [key]: !prev[key] }))
   }
 
-  const handleOpenPreview = () => {
-    const md = generateMarkdown(cvData, sections)
-    setOriginalMarkdown(md)
-    setEditedMarkdown(md)
-    setActiveTab('edit')
-    setIsPreviewOpen(true)
-  }
-
-  const handleReset = () => {
-    setEditedMarkdown(originalMarkdown)
-  }
-
-  const handleDownloadMd = () => {
-    downloadMarkdown(editedMarkdown)
-    setDownloadedMd(true)
-    setTimeout(() => setDownloadedMd(false), 2000)
-  }
-
-  const handleDownloadPdf = async () => {
-    setIsGeneratingPdf(true)
-    try {
-      await downloadCvPdf(editedMarkdown)
-      setDownloadedPdf(true)
-      setTimeout(() => setDownloadedPdf(false), 2000)
-    } finally {
-      setIsGeneratingPdf(false)
-    }
-  }
-
-  const isDirty = editedMarkdown !== originalMarkdown
+  const getMarkdown = () => generateMarkdown(cvData, sections)
 
   return (
     <div className="export-panel">
@@ -90,21 +54,16 @@ export function ExportModal() {
       </div>
 
       <div className="export-actions">
-        <Button variant="secondary" onClick={handleOpenPreview}>
+        <Button variant="secondary" onClick={() => setEditorMarkdown(getMarkdown())}>
           {t('export.preview')}
         </Button>
-        <Button
-          variant="secondary"
-          onClick={() => {
-            downloadMarkdown(generateMarkdown(cvData, sections))
-          }}
-        >
+        <Button variant="secondary" onClick={() => downloadMarkdown(getMarkdown())}>
           {t('export.export')}
         </Button>
         <Button
           onClick={async () => {
             setIsGeneratingPdf(true)
-            try { await downloadCvPdf(generateMarkdown(cvData, sections)) }
+            try { await downloadCvPdf(getMarkdown()) }
             finally { setIsGeneratingPdf(false) }
           }}
           disabled={isGeneratingPdf}
@@ -113,95 +72,13 @@ export function ExportModal() {
         </Button>
       </div>
 
-      {isPreviewOpen && (
-        <div className="preview-overlay" onClick={() => setIsPreviewOpen(false)}>
-          <div className="preview-modal preview-modal--editor" onClick={e => e.stopPropagation()}>
-
-            <div className="preview-modal-header">
-              <div className="preview-modal-tabs">
-                <button
-                  className={`preview-tab-btn${activeTab === 'edit' ? ' preview-tab-btn--active' : ''}`}
-                  onClick={() => setActiveTab('edit')}
-                >
-                  {t('export.tabEdit')}
-                </button>
-                <button
-                  className={`preview-tab-btn${activeTab === 'preview' ? ' preview-tab-btn--active' : ''}`}
-                  onClick={() => setActiveTab('preview')}
-                >
-                  {t('export.tabPreview')}
-                </button>
-                {isDirty && (
-                  <span className="preview-dirty-badge">{t('export.edited')}</span>
-                )}
-              </div>
-              <button
-                className="close-btn"
-                onClick={() => setIsPreviewOpen(false)}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="preview-modal-body">
-              {activeTab === 'edit' ? (
-                <textarea
-                  className="md-editor"
-                  value={editedMarkdown}
-                  onChange={e => setEditedMarkdown(e.target.value)}
-                  spellCheck={false}
-                  aria-label="Markdown editor"
-                />
-              ) : (
-                <div className="preview-content preview-markdown">
-                  <ReactMarkdown>{editedMarkdown}</ReactMarkdown>
-                </div>
-              )}
-            </div>
-
-            <div className="preview-modal-footer">
-              <button
-                className="preview-reset-btn"
-                onClick={handleReset}
-                disabled={!isDirty}
-                title={t('export.reset')}
-              >
-                {t('export.reset')}
-              </button>
-              <div className="preview-modal-footer-actions">
-                <Button
-                  variant="secondary"
-                  onClick={handleDownloadMd}
-                  icon={downloadedMd ? <CheckIcon /> : undefined}
-                >
-                  {downloadedMd ? t('export.downloaded') : t('export.download')}
-                </Button>
-                <Button
-                  onClick={handleDownloadPdf}
-                  disabled={isGeneratingPdf}
-                  icon={downloadedPdf ? <CheckIcon /> : undefined}
-                >
-                  {isGeneratingPdf
-                    ? t('export.generatingPdf')
-                    : downloadedPdf
-                    ? t('export.downloadedPdf')
-                    : t('export.downloadPdf')}
-                </Button>
-              </div>
-            </div>
-
-          </div>
-        </div>
+      {editorMarkdown !== null && (
+        <MarkdownEditorModal
+          markdown={editorMarkdown}
+          filename="lucas-mansoldo-cv"
+          onClose={() => setEditorMarkdown(null)}
+        />
       )}
     </div>
-  )
-}
-
-function CheckIcon() {
-  return (
-    <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
   )
 }

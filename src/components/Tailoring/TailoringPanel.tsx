@@ -2,37 +2,26 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTailoring } from '../../hooks/useTailoring'
 import { MatchScore } from './MatchScore'
-import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
-import { downloadCvPdf } from '../../utils/pdfGenerator'
+import { generateMarkdown } from '../../utils/markdownGenerator'
 import { useCV } from '../../hooks/useCV'
 import { Button } from '../ui/Button'
+import { MarkdownEditorModal } from '../ui/MarkdownEditorModal'
 
 export function TailoringPanel() {
   const { t } = useTranslation()
   const cvData = useCV()
   const [jobDescription, setJobDescription] = useState('')
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const [editorMarkdown, setEditorMarkdown] = useState<string | null>(null)
   const { result, isLoading, error, tailorResume, reset } = useTailoring(cvData)
 
-  const getTailoredMd = () => generateMarkdown(
+  const getTailoredMarkdown = () => generateMarkdown(
     cvData,
     { summary: true, skills: true, experience: true, education: true },
     result ?? undefined
   )
 
-  const handleExportMd = () => {
-    if (!result) return
-    downloadMarkdown(getTailoredMd(), 'lucas-mansoldo-tailored-cv.md')
-  }
-
-  const handleExportPdf = async () => {
-    if (!result) return
-    setIsGeneratingPdf(true)
-    try {
-      await downloadCvPdf(getTailoredMd(), 'lucas-mansoldo-tailored-cv.pdf')
-    } finally {
-      setIsGeneratingPdf(false)
-    }
+  const handleOpenEditor = () => {
+    setEditorMarkdown(getTailoredMarkdown())
   }
 
   return (
@@ -92,14 +81,19 @@ export function TailoringPanel() {
             <Button variant="secondary" onClick={reset}>
               {t('tailoring.tryAnother')}
             </Button>
-            <Button variant="secondary" onClick={handleExportMd}>
-              {t('tailoring.exportTailored')} .md
-            </Button>
-            <Button onClick={handleExportPdf} disabled={isGeneratingPdf}>
-              {isGeneratingPdf ? t('export.generatingPdf') : `${t('tailoring.exportTailored')} .pdf`}
+            <Button onClick={handleOpenEditor}>
+              {t('tailoring.editAndExport')}
             </Button>
           </div>
         </div>
+      )}
+
+      {editorMarkdown !== null && (
+        <MarkdownEditorModal
+          markdown={editorMarkdown}
+          filename="lucas-mansoldo-tailored-cv"
+          onClose={() => setEditorMarkdown(null)}
+        />
       )}
     </div>
   )
