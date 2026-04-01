@@ -3,7 +3,7 @@ import ptBRData from '../src/data.pt-BR.json'
 
 export const config = { runtime: 'edge' }
 
-const MODEL = 'gemini-2.0-flash'
+const MODEL = 'gemini-2.5-flash-preview-04-17'
 const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models'
 
 interface TailorRequestBody {
