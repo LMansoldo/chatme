@@ -84,9 +84,7 @@ function App() {
 
   const dockItems = [
     { icon: <HomeIcon />, label: t('nav.home'), onClick: () => scrollTo('hero') },
-    { icon: <ChatIcon />, label: t('nav.chat'), onClick: () => scrollTo('chat') },
     { icon: <BriefcaseIcon />, label: t('nav.experience'), onClick: () => scrollTo('experience') },
-    { icon: <CodeIcon />, label: t('nav.skills'), onClick: () => scrollTo('skills') },
     { icon: <FileTextIcon />, label: t('nav.exportCV'), onClick: () => setModal('export') },
     { icon: <TargetIcon />, label: t('nav.tailorCV'), onClick: () => setModal('tailoring') },
     { icon: <LangToggle />, label: '', onClick: () => {}, isRaw: true },
@@ -99,7 +97,6 @@ function App() {
         <HeroSection />
         <ChatSection />
         <ExperienceSection />
-        <SkillsSection />
       </main>
 
       <Dock items={dockItems} magnification={52} />

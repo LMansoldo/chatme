@@ -29,12 +29,14 @@ function ChatMessage({ message, isStreaming }: { message: Message; isStreaming: 
 export function ChatSection() {
   const { t, i18n } = useTranslation()
   const { messages, isStreaming, sendMessage } = useChat(i18n.language)
-  const bottomRef = useRef<HTMLDivElement>(null)
+  const messagesListRef = useRef<HTMLDivElement>(null)
 
   const suggestions = t('chat.suggestions', { returnObjects: true }) as string[]
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const el = messagesListRef.current
+    if (!el) return
+    el.scrollTop = el.scrollHeight
   }, [messages])
 
   // ChatSection.tsx (trecho modificado)
@@ -65,7 +67,7 @@ export function ChatSection() {
               </div>
             </div>
           ) : (
-            <div className="chat-messages-list">
+            <div className="chat-messages-list" ref={messagesListRef}>
               {messages.map((msg, i) => (
                 <ChatMessage
                   key={msg.id}
@@ -73,7 +75,6 @@ export function ChatSection() {
                   isStreaming={isStreaming && i === messages.length - 1}
                 />
               ))}
-              <div ref={bottomRef} />
             </div>
           )}
         </div>
