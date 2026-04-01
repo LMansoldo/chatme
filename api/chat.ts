@@ -1,6 +1,8 @@
 import enData from '../src/data.json'
 import ptBRData from '../src/data.pt-BR.json'
 
+export const config = { runtime: 'edge' }
+
 const MODEL = 'gemini-2.0-flash'
 const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models'
 
@@ -42,7 +44,10 @@ export default async function handler(req: Request): Promise<Response> {
 
   const apiKey = process.env.GEMINI_API_KEY
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not set' }), { status: 500 })
+    return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not set' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
   }
 
   let body: ChatRequestBody
@@ -58,22 +63,32 @@ export default async function handler(req: Request): Promise<Response> {
 
   const cvData = getCVData(body.language ?? 'en')
 
-  const upstream = await fetch(
-    `${BASE_URL}/${MODEL}:streamGenerateContent?key=${apiKey}&alt=sse`,
-    {
-      method: 'POST',
+  let upstream: Response
+  try {
+    upstream = await fetch(
+      `${BASE_URL}/${MODEL}:streamGenerateContent?key=${apiKey}&alt=sse`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: buildSystemPrompt(cvData) }] },
+          contents: toGeminiMessages(body.messages),
+          generationConfig: { maxOutputTokens: 1024 },
+        }),
+      }
+    )
+  } catch (err) {
+    return new Response(JSON.stringify({ error: `Upstream fetch failed: ${(err as Error).message}` }), {
+      status: 502,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: buildSystemPrompt(cvData) }] },
-        contents: toGeminiMessages(body.messages),
-        generationConfig: { maxOutputTokens: 1024 },
-      }),
-    }
-  )
+    })
+  }
 
   if (!upstream.ok) {
-    return new Response(JSON.stringify({ error: `Upstream error: ${upstream.status}` }), {
+    const errorText = await upstream.text()
+    return new Response(JSON.stringify({ error: `Upstream error ${upstream.status}: ${errorText}` }), {
       status: upstream.status,
+      headers: { 'Content-Type': 'application/json' },
     })
   }
 

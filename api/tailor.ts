@@ -1,6 +1,8 @@
 import enData from '../src/data.json'
 import ptBRData from '../src/data.pt-BR.json'
 
+export const config = { runtime: 'edge' }
+
 const MODEL = 'gemini-2.0-flash'
 const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models'
 
@@ -36,7 +38,10 @@ export default async function handler(req: Request): Promise<Response> {
 
   const apiKey = process.env.GEMINI_API_KEY
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not set' }), { status: 500 })
+    return new Response(JSON.stringify({ error: 'GEMINI_API_KEY not set' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
   }
 
   let body: TailorRequestBody
@@ -52,25 +57,35 @@ export default async function handler(req: Request): Promise<Response> {
 
   const cvData = getCVData(body.language ?? 'en')
 
-  const upstream = await fetch(
-    `${BASE_URL}/${MODEL}:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
+  let upstream: Response
+  try {
+    upstream = await fetch(
+      `${BASE_URL}/${MODEL}:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: [{
+            role: 'user',
+            parts: [{ text: `Job Description:\n${body.jobDescription}\n\nCV Data:\n${JSON.stringify(cvData, null, 2)}` }],
+          }],
+          generationConfig: { maxOutputTokens: 2048 },
+        }),
+      }
+    )
+  } catch (err) {
+    return new Response(JSON.stringify({ error: `Upstream fetch failed: ${(err as Error).message}` }), {
+      status: 502,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: [{
-          role: 'user',
-          parts: [{ text: `Job Description:\n${body.jobDescription}\n\nCV Data:\n${JSON.stringify(cvData, null, 2)}` }],
-        }],
-        generationConfig: { maxOutputTokens: 2048 },
-      }),
-    }
-  )
+    })
+  }
 
   if (!upstream.ok) {
-    return new Response(JSON.stringify({ error: `Upstream error: ${upstream.status}` }), {
+    const errorText = await upstream.text()
+    return new Response(JSON.stringify({ error: `Upstream error ${upstream.status}: ${errorText}` }), {
       status: upstream.status,
+      headers: { 'Content-Type': 'application/json' },
     })
   }
 
