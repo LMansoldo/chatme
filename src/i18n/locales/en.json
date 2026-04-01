@@ -34,12 +34,16 @@
     "softSkills": "Soft Skills"
   },
   "export": {
-    "title": "Export CV as Markdown",
+    "title": "Export CV",
     "description": "Select the sections to include in your exported file.",
     "preview": "Preview",
     "export": "Export .md",
+    "exportPdf": "Export .pdf",
     "downloaded": "Downloaded!",
+    "downloadedPdf": "PDF Ready!",
+    "generatingPdf": "Generating…",
     "download": "Download",
+    "downloadPdf": "Download PDF",
     "previewTitle": "Preview",
     "sections": {
       "summary": "Summary",

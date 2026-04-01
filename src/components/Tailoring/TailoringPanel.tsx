@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useTailoring } from '../../hooks/useTailoring'
 import { MatchScore } from './MatchScore'
 import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
+import { downloadCvPdf } from '../../utils/pdfGenerator'
 import { useCV } from '../../hooks/useCV'
 import { Button } from '../ui/Button'
 
@@ -10,16 +11,28 @@ export function TailoringPanel() {
   const { t } = useTranslation()
   const cvData = useCV()
   const [jobDescription, setJobDescription] = useState('')
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
   const { result, isLoading, error, tailorResume, reset } = useTailoring(cvData)
 
-  const handleExport = () => {
+  const getTailoredMd = () => generateMarkdown(
+    cvData,
+    { summary: true, skills: true, experience: true, education: true },
+    result ?? undefined
+  )
+
+  const handleExportMd = () => {
     if (!result) return
-    const md = generateMarkdown(
-      cvData,
-      { summary: true, skills: true, experience: true, education: true },
-      result
-    )
-    downloadMarkdown(md, 'lucas-mansoldo-tailored-cv.md')
+    downloadMarkdown(getTailoredMd(), 'lucas-mansoldo-tailored-cv.md')
+  }
+
+  const handleExportPdf = async () => {
+    if (!result) return
+    setIsGeneratingPdf(true)
+    try {
+      await downloadCvPdf(getTailoredMd(), 'lucas-mansoldo-tailored-cv.pdf')
+    } finally {
+      setIsGeneratingPdf(false)
+    }
   }
 
   return (
@@ -79,8 +92,11 @@ export function TailoringPanel() {
             <Button variant="secondary" onClick={reset}>
               {t('tailoring.tryAnother')}
             </Button>
-            <Button onClick={handleExport}>
-              {t('tailoring.exportTailored')}
+            <Button variant="secondary" onClick={handleExportMd}>
+              {t('tailoring.exportTailored')} .md
+            </Button>
+            <Button onClick={handleExportPdf} disabled={isGeneratingPdf}>
+              {isGeneratingPdf ? t('export.generatingPdf') : `${t('tailoring.exportTailored')} .pdf`}
             </Button>
           </div>
         </div>

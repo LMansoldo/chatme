@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
 import type { ExportSection } from '../../types'
 import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
+import { downloadCvPdf } from '../../utils/pdfGenerator'
 import { useCV } from '../../hooks/useCV'
 import { Button } from '../ui/Button'
 
@@ -24,7 +25,9 @@ export function ExportModal() {
     education: true,
   })
   const [preview, setPreview] = useState<string | null>(null)
-  const [downloaded, setDownloaded] = useState(false)
+  const [downloadedMd, setDownloadedMd] = useState(false)
+  const [downloadedPdf, setDownloadedPdf] = useState(false)
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
 
   const toggleSection = (key: keyof ExportSection) => {
     setSections(prev => ({ ...prev, [key]: !prev[key] }))
@@ -34,10 +37,27 @@ export function ExportModal() {
     setPreview(generateMarkdown(cvData, sections))
   }
 
-  const handleDownload = () => {
+  const handleDownloadMd = () => {
     downloadMarkdown(generateMarkdown(cvData, sections))
-    setDownloaded(true)
-    setTimeout(() => setDownloaded(false), 2000)
+    setDownloadedMd(true)
+    setTimeout(() => setDownloadedMd(false), 2000)
+  }
+
+  const handleDownloadPdf = async () => {
+    setIsGeneratingPdf(true)
+    try {
+      await downloadCvPdf(generateMarkdown(cvData, sections))
+      setDownloadedPdf(true)
+      setTimeout(() => setDownloadedPdf(false), 2000)
+    } finally {
+      setIsGeneratingPdf(false)
+    }
+  }
+
+  const pdfButtonLabel = () => {
+    if (isGeneratingPdf) return t('export.generatingPdf')
+    if (downloadedPdf) return t('export.downloadedPdf')
+    return t('export.exportPdf')
   }
 
   return (
@@ -65,14 +85,26 @@ export function ExportModal() {
           {t('export.preview')}
         </Button>
         <Button
-          onClick={handleDownload}
-          icon={downloaded ? (
+          variant="secondary"
+          onClick={handleDownloadMd}
+          icon={downloadedMd ? (
             <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           ) : undefined}
         >
-          {downloaded ? t('export.downloaded') : t('export.export')}
+          {downloadedMd ? t('export.downloaded') : t('export.export')}
+        </Button>
+        <Button
+          onClick={handleDownloadPdf}
+          disabled={isGeneratingPdf}
+          icon={downloadedPdf ? (
+            <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          ) : undefined}
+        >
+          {pdfButtonLabel()}
         </Button>
       </div>
 
@@ -89,13 +121,11 @@ export function ExportModal() {
               <ReactMarkdown>{preview}</ReactMarkdown>
             </div>
             <div className="preview-modal-footer">
-              <Button
-                onClick={() => {
-                  handleDownload()
-                  setPreview(null)
-                }}
-              >
+              <Button variant="secondary" onClick={() => { handleDownloadMd(); setPreview(null) }}>
                 {t('export.download')}
+              </Button>
+              <Button onClick={() => { handleDownloadPdf(); setPreview(null) }} disabled={isGeneratingPdf}>
+                {t('export.downloadPdf')}
               </Button>
             </div>
           </div>

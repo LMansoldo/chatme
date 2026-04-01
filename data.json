@@ -10,13 +10,16 @@
     "role": "Senior Front-End Engineer",
     "main_stack": ["Svelte", "React", "TypeScript"]
   },
-  "summary": "Senior Front-End Engineer with 7+ years of experience building high-performance web applications using Svelte, React, TypeScript, and modern JavaScript. Skilled in creating responsive, mobile-first interfaces, component libraries, API integration, and optimizing client-side performance. Proven ability to deliver efficient, scalable projects with user-friendly interfaces that meet client needs and industry standards.",
+  "summary": "Senior Front-End Engineer with 7+ years of experience building high-performance web applications using Svelte, React, TypeScript, and modern JavaScript. Skilled in creating responsive, mobile-first interfaces, component libraries, API integration, and optimizing client-side performance. Experienced in AI Engineering: building AI Agents, MCP Servers, MCP Clients, RAG pipelines, embedding workflows, Context Engineering, and AI Chatbots. Proven ability to deliver efficient, scalable projects with user-friendly interfaces that meet client needs and industry standards.",
   "skills": {
     "technologies": [
       "Svelte", "React", "Redux", "Next.js", "Qwik", "Astro", "TypeScript", "JavaScript",
       "Tailwind", "Storybook", "Jest", "Cypress", "Playwright", "Docker", "Git", "Webpack",
       "Vite", "Jenkins", "GitHub Actions", "AWS", "Node.js", "Express", "PHP", "Elixir",
-      "Bash", "Lua", "MongoDB"
+      "Bash", "Lua", "MongoDB",
+      "AI Agents", "MCP Servers", "MCP Clients", "RAG", "Fine-tuning", "Embeddings",
+      "Context Engineering", "Prompt Engineering", "LLM Integration", "AI Chatbots",
+      "Vector Databases", "Anthropic API", "OpenAI API", "LangChain"
     ],
     "technical_competencies": [
       "Proficiency in React, Svelte and JavaScript (ES6/ES7)",
@@ -30,6 +33,12 @@
       "Continuous deployment and DevOps practices (Jenkins, GitHub Actions, AWS)",
       "Clean architecture, cross-browser compatibility, and web performance",
       "Technical leadership and knowledge sharing through code reviews and pair programming",
+      "AI Agent development and automated AI workflows for code review, testing, and task management",
+      "MCP Server and MCP Client development for structured LLM context access",
+      "RAG pipeline implementation with embedding models and vector databases",
+      "Context Engineering: token budget management, memory strategies, and multi-step AI orchestration",
+      "AI Chatbot creation with streaming, conversation history, and RAG-based grounding",
+      "LLM fine-tuning and embedding pipelines for domain-specific search and classification",
       "Advanced English Level"
     ],
     "soft_skills": [
@@ -42,7 +51,13 @@
   "expertise": [
     "Continuously update technical knowledge to stay at the forefront of modern development practices.",
     "Proven ability to bridge communication between technical teams and stakeholders, ensuring seamless project delivery.",
-    "Extensive experience in developing PWAs and reusable component libraries, streamlining the development of new products."
+    "Extensive experience in developing PWAs and reusable component libraries, streamlining the development of new products.",
+    "Building AI Agents and automated workflows that reduce manual effort and accelerate delivery cycles by 60–90%.",
+    "Designing and developing MCP Servers and MCP Clients to give LLMs structured access to project context, reducing AI hallucination and prompt slop.",
+    "Implementing RAG pipelines with embedding models and vector databases to enable accurate, context-aware AI responses.",
+    "Applying Context Engineering techniques to manage token budgets, memory, and retrieval strategies across multi-step AI workflows.",
+    "Creating production-ready AI Chatbots integrated into front-end applications with streaming, history, and grounding via RAG.",
+    "Fine-tuning LLMs and building embedding pipelines for domain-specific search, classification, and recommendations."
   ],
   "experience": [
     {
@@ -64,7 +79,7 @@
       "role": "Senior Front-End Developer",
       "company": "Ília Digital (JPMC)",
       "location": "Brasília, Brazil",
-      "period": "Apr 2022 - Present",
+      "period": "Apr 2022 - Apr 2025",
       "highlights": [
         "Led the development of an MVP to manage bank accounts, investments, and company ownership using Svelte, TypeScript, SCSS, Tailwind, Vite, DevContainer, and Jest — adopting design patterns that reduced lifecycle issues by 90%.",
         "Delivered a PWA for managing expenses, transfers, and property investments using Svelte, TypeScript, SCSS, Tailwind, Vite, Playwright, and Jest — reducing app loading times by 40% via Lazy Loading and code splitting.",

@@ -11,9 +11,9 @@
     "main_stack": ["Svelte", "React", "TypeScript"]
   },
   "summary": {
-    "headline": "Engenheiro Front-End Sênior com 7+ anos construindo plataformas financeiras, visualização de dados e documentação interativa.",
-    "focus_areas": ["Fintech", "Visualização de Dados", "Documentação Interativa", "Desenvolvimento de PWA"],
-    "tagline": "Especializado em Svelte, React e TypeScript — focado em performance, acessibilidade e arquitetura de componentes escalável."
+    "headline": "Engenheiro Front-End Sênior com 7+ anos construindo plataformas financeiras, visualização de dados, documentação interativa e aplicações com IA.",
+    "focus_areas": ["Fintech", "Visualização de Dados", "Documentação Interativa", "Desenvolvimento de PWA", "Engenharia de IA"],
+    "tagline": "Especializado em Svelte, React e TypeScript — focado em performance, acessibilidade, arquitetura de componentes escalável e desenvolvimento orientado a IA com Agentes, MCP, RAG e Context Engineering."
   },
   "skills": {
     "tech": [
@@ -21,12 +21,14 @@
       { "label": "Linguagens", "items": ["TypeScript", "JavaScript", "PHP", "Elixir", "Lua", "Bash"] },
       { "label": "Ferramentas", "items": ["Vite", "Webpack", "Docker", "Git", "Jenkins", "GitHub Actions", "AWS"] },
       { "label": "Testes", "items": ["Jest", "Cypress", "Playwright"] },
-      { "label": "Runtime", "items": ["Node.js", "Express"] }
+      { "label": "Runtime", "items": ["Node.js", "Express"] },
+      { "label": "Engenharia de IA", "items": ["Agentes de IA", "MCP Servers", "MCP Clients", "RAG", "Fine-tuning", "Embeddings", "Context Engineering", "Engenharia de Prompt", "Integração com LLMs", "Chatbots de IA", "Bancos de Dados Vetoriais", "API Anthropic", "API OpenAI", "LangChain"] }
     ],
     "competencies": [
       { "label": "API & Integração", "items": ["APIs RESTful", "GraphQL", "WebSockets", "Microsserviços", "MongoDB"] },
       { "label": "Craft Frontend", "items": ["UI/UX", "Acessibilidade", "Mobile-first", "Otimização de Performance", "Arquitetura de Componentes", "Web Components", "SASS/LESS", "Compatibilidade Cross-browser"] },
-      { "label": "Engenharia", "items": ["TDD", "DevOps & CI/CD", "SSR", "Arquitetura Limpa", "Liderança Técnica"] }
+      { "label": "Engenharia", "items": ["TDD", "DevOps & CI/CD", "SSR", "Arquitetura Limpa", "Liderança Técnica"] },
+      { "label": "IA & Automação", "items": ["Desenvolvimento de Agentes de IA", "Workflows Automatizados com IA", "RAG (Retrieval-Augmented Generation)", "Fine-tuning de Modelos", "Pipelines de Embeddings", "Context Engineering", "Desenvolvimento de MCP Server & Client", "Criação de Chatbots de IA", "Busca Semântica", "Desenvolvimento Assistido por IA"] }
     ],
     "soft_skills": [
       "Entrega de alto valor equilibrando qualidade e ciclos de entrega, com excelente gestão de tempo",
@@ -38,7 +40,13 @@
   "expertise": [
     "Atualiza continuamente o conhecimento técnico para se manter na vanguarda das práticas modernas de desenvolvimento.",
     "Capacidade comprovada de fazer a ponte entre equipes técnicas e stakeholders, garantindo entregas sem atrito.",
-    "Experiência extensiva no desenvolvimento de PWAs e bibliotecas de componentes reutilizáveis, acelerando o desenvolvimento de novos produtos."
+    "Experiência extensiva no desenvolvimento de PWAs e bibliotecas de componentes reutilizáveis, acelerando o desenvolvimento de novos produtos.",
+    "Construção de Agentes de IA e workflows automatizados que reduzem esforço manual e aceleram ciclos de entrega em 60–90%.",
+    "Projeto e desenvolvimento de MCP Servers e MCP Clients para fornecer aos LLMs acesso estruturado ao contexto do projeto, reduzindo alucinações e AI slop.",
+    "Implementação de pipelines de RAG com modelos de embedding e bancos de dados vetoriais para respostas de IA precisas e contextualizadas.",
+    "Aplicação de técnicas de Context Engineering para gerenciar orçamentos de tokens, memória e estratégias de recuperação em workflows de IA multi-etapas.",
+    "Criação de Chatbots de IA prontos para produção integrados a aplicações front-end com streaming, histórico e fundamentação via RAG.",
+    "Fine-tuning de LLMs e construção de pipelines de embeddings para busca, classificação e recomendações específicas do domínio."
   ],
   "experience": [
     {
@@ -60,7 +68,7 @@
       "role": "Desenvolvedor Front-End Sênior",
       "company": "Ília Digital (JPMC)",
       "location": "Brasília, Brasil",
-      "period": "Abr 2022 - Presente",
+      "period": "Abr 2022 - Abr 2025",
       "highlights": [
         { "text": "Liderou o desenvolvimento de MVP para gestão de contas bancárias, investimentos e participação societária com Svelte, TypeScript, SCSS, Tailwind, Vite, DevContainer e Jest — reduzindo problemas de ciclo de vida em 90%.", "category": "architecture" },
         { "text": "Entregou PWA para gestão de despesas, transferências e investimentos imobiliários com Svelte, TypeScript, SCSS, Tailwind, Vite, Playwright e Jest — reduzindo o tempo de carregamento em 40% com Lazy Loading e code splitting.", "category": "ui" },

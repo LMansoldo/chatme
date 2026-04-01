@@ -499,6 +499,7 @@ a.profile-meta-link:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
   gap: 16px;
+  align-items: start;
 }
 
 @media (max-width: 560px) {
@@ -630,6 +631,7 @@ a.profile-meta-link:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
+  align-items: start;
 }
 
 .skill-bento {
