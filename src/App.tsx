@@ -9,13 +9,15 @@ import { ChatSection } from './components/sections/ChatSection'
 import { ExperienceSection } from './components/sections/ExperienceSection'
 import { ExportModal } from './components/Export/ExportModal'
 import { TailoringPanel } from './components/Tailoring/TailoringPanel'
+import { PinModal } from './components/ui/PinModal'
+import { useAuth } from './hooks/useAuth'
 import './styles/global.css'
 import './styles/chat.css'
 import './styles/export.css'
 import './styles/tailoring.css'
 import './styles/portfolio.css'
 
-type Modal = 'export' | 'tailoring' | null
+type Modal = 'export' | 'tailoring' | 'pin' | null
 
 function HomeIcon() {
   return (
@@ -56,6 +58,15 @@ function TargetIcon() {
   )
 }
 
+function LockIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  )
+}
+
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
@@ -63,15 +74,26 @@ function scrollTo(id: string) {
 function App() {
   const { t } = useTranslation()
   const [modal, setModal] = useState<Modal>(null)
+  const { isAuthenticated, authenticate } = useAuth()
 
-  const dockItems = [
+  const baseDockItems = [
     { icon: <HomeIcon />, label: t('nav.home'), onClick: () => scrollTo('hero') },
     { icon: <BriefcaseIcon />, label: t('nav.experience'), onClick: () => scrollTo('experience') },
     { icon: <FileTextIcon />, label: t('nav.exportCV'), onClick: () => setModal('export') },
-    { icon: <TargetIcon />, label: t('nav.tailorCV'), onClick: () => setModal('tailoring') },
-    { icon: <LangToggle />, label: '', onClick: () => {}, isRaw: true },
-    { icon: <ThemeToggle />, label: '', onClick: () => {}, isRaw: true },
   ]
+
+  const authDockItems = isAuthenticated
+    ? [
+        { icon: <TargetIcon />, label: t('nav.tailorCV'), onClick: () => setModal('tailoring') },
+        { icon: <LangToggle />, label: '', onClick: () => {}, isRaw: true },
+        { icon: <ThemeToggle />, label: '', onClick: () => {}, isRaw: true },
+      ]
+    : [
+        { icon: <LangToggle />, label: '', onClick: () => {}, isRaw: true },
+        { icon: <LockIcon />, label: 'Admin', onClick: () => setModal('pin') },
+      ]
+
+  const dockItems = [...baseDockItems, ...authDockItems]
 
   return (
     <div className="portfolio">
@@ -87,18 +109,29 @@ function App() {
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal-panel" onClick={e => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setModal(null)} aria-label="Close">✕</button>
-            <ExportModal />
+            <ExportModal isAuthenticated={isAuthenticated} />
           </div>
         </div>
       )}
 
-      {modal === 'tailoring' && (
+      {modal === 'tailoring' && isAuthenticated && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal-panel modal-panel--wide" onClick={e => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setModal(null)} aria-label="Close">✕</button>
             <TailoringPanel />
           </div>
         </div>
+      )}
+
+      {modal === 'pin' && (
+        <PinModal
+          onSubmit={pin => {
+            const ok = authenticate(pin)
+            if (ok) setModal(null)
+            return ok
+          }}
+          onClose={() => setModal(null)}
+        />
       )}
     </div>
   )

@@ -233,3 +233,83 @@ a:hover {
     transform: translateY(0);
   }
 }
+
+/* ── Pin Modal ─────────────────────────────────────────── */
+.pin-modal {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: min(320px, 90vw);
+}
+
+.pin-modal__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.pin-modal__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.pin-modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.pin-modal__input {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pin-modal__input:focus {
+  border-color: var(--accent);
+}
+
+.pin-modal__input--error {
+  border-color: var(--error);
+}
+
+.pin-modal__error {
+  font-size: 0.75rem;
+  color: var(--error);
+  margin: 0;
+}
+
+.pin-modal__btn {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pin-modal__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

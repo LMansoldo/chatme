@@ -7,7 +7,7 @@ import { useCV } from '../../hooks/useCV'
 import { Button } from '../ui/Button'
 import { MarkdownEditorModal } from '../ui/MarkdownEditorModal'
 
-export function ExportModal() {
+export function ExportModal({ isAuthenticated }: { isAuthenticated: boolean }) {
   const { t } = useTranslation()
   const cvData = useCV()
 
@@ -54,9 +54,11 @@ export function ExportModal() {
       </div>
 
       <div className="export-actions">
-        <Button variant="secondary" onClick={() => setEditorMarkdown(getMarkdown())}>
-          {t('export.preview')}
-        </Button>
+        {isAuthenticated && (
+          <Button variant="secondary" onClick={() => setEditorMarkdown(getMarkdown())}>
+            {t('export.preview')}
+          </Button>
+        )}
         <Button variant="secondary" onClick={() => downloadMarkdown(getMarkdown())}>
           {t('export.export')}
         </Button>
