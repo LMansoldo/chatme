@@ -4,6 +4,7 @@ import { useTailoring } from '../../hooks/useTailoring'
 import { MatchScore } from './MatchScore'
 import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
 import { useCV } from '../../hooks/useCV'
+import { Button } from '../ui/Button'
 
 export function TailoringPanel() {
   const { t } = useTranslation()
@@ -36,8 +37,8 @@ export function TailoringPanel() {
             rows={10}
             disabled={isLoading}
           />
-          <button
-            className="btn btn--primary"
+          <Button
+            fullWidth
             onClick={() => tailorResume(jobDescription)}
             disabled={isLoading || !jobDescription.trim()}
           >
@@ -48,7 +49,7 @@ export function TailoringPanel() {
             ) : (
               t('tailoring.tailor')
             )}
-          </button>
+          </Button>
           {error && <p className="tailoring-error">⚠ {error}</p>}
         </div>
       ) : (
@@ -75,12 +76,12 @@ export function TailoringPanel() {
           </div>
 
           <div className="tailoring-actions">
-            <button className="btn btn--secondary" onClick={reset}>
+            <Button variant="secondary" onClick={reset}>
               {t('tailoring.tryAnother')}
-            </button>
-            <button className="btn btn--primary" onClick={handleExport}>
+            </Button>
+            <Button onClick={handleExport}>
               {t('tailoring.exportTailored')}
-            </button>
+            </Button>
           </div>
         </div>
       )}

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import type { ExportSection } from '../../types'
 import { generateMarkdown, downloadMarkdown } from '../../utils/markdownGenerator'
 import { useCV } from '../../hooks/useCV'
+import { Button } from '../ui/Button'
 
 export function ExportModal() {
   const { t } = useTranslation()
@@ -60,21 +61,19 @@ export function ExportModal() {
       </div>
 
       <div className="export-actions">
-        <button className="btn btn--secondary" onClick={handlePreview}>
+        <Button variant="secondary" onClick={handlePreview}>
           {t('export.preview')}
-        </button>
-        <button className="btn btn--primary" onClick={handleDownload}>
-          {downloaded ? (
-            <>
-              <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              {t('export.downloaded')}
-            </>
-          ) : (
-            t('export.export')
-          )}
-        </button>
+        </Button>
+        <Button
+          onClick={handleDownload}
+          icon={downloaded ? (
+            <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          ) : undefined}
+        >
+          {downloaded ? t('export.downloaded') : t('export.export')}
+        </Button>
       </div>
 
       {preview !== null && (
@@ -90,15 +89,14 @@ export function ExportModal() {
               <ReactMarkdown>{preview}</ReactMarkdown>
             </div>
             <div className="preview-modal-footer">
-              <button
-                className="btn btn--primary"
+              <Button
                 onClick={() => {
                   handleDownload()
                   setPreview(null)
                 }}
               >
                 {t('export.download')}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

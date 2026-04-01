@@ -4,45 +4,73 @@
     "location": "Canoas, Brasil",
     "email": "lucasmansoldo0@gmail.com",
     "phone": "+55 21 98030-3612",
-    "linkedin": "https://linkedin.com/lucas-mansoldo"
+    "linkedin": "https://www.linkedin.com/in/lucas-mansoldo-9216b694/"
   },
   "objective": {
-    "role": "Desenvolvedor Front-End Sênior",
+    "role": "Engenheiro Front-End Sênior",
     "main_stack": ["Svelte", "React", "TypeScript"]
   },
   "summary": {
-    "headline": "Desenvolvedor Front-End Sênior com 7+ anos construindo plataformas financeiras, de visualização de dados e documentação.",
+    "headline": "Engenheiro Front-End Sênior com 7+ anos construindo plataformas financeiras, visualização de dados e documentação interativa.",
     "focus_areas": ["Fintech", "Visualização de Dados", "Documentação Interativa", "Desenvolvimento de PWA"],
     "tagline": "Especializado em Svelte, React e TypeScript — focado em performance, acessibilidade e arquitetura de componentes escalável."
   },
   "skills": {
     "tech": [
-      { "label": "Frontend", "items": ["Svelte", "React", "Next.js", "Tailwind", "Storybook"] },
-      { "label": "Linguagens", "items": ["TypeScript", "JavaScript", "Lua", "Bash"] },
-      { "label": "Ferramentas", "items": ["Vite", "Webpack", "Docker", "Git", "Jenkins"] },
+      { "label": "Frontend", "items": ["Svelte", "React", "Redux", "Next.js", "Qwik", "Astro", "Tailwind", "Storybook"] },
+      { "label": "Linguagens", "items": ["TypeScript", "JavaScript", "PHP", "Elixir", "Lua", "Bash"] },
+      { "label": "Ferramentas", "items": ["Vite", "Webpack", "Docker", "Git", "Jenkins", "GitHub Actions", "AWS"] },
       { "label": "Testes", "items": ["Jest", "Cypress", "Playwright"] },
-      { "label": "Runtime", "items": ["Node.js"] }
+      { "label": "Runtime", "items": ["Node.js", "Express"] }
     ],
     "competencies": [
-      { "label": "API & Integração", "items": ["APIs RESTful", "GraphQL"] },
-      { "label": "Craft Frontend", "items": ["UI/UX", "Acessibilidade", "Mobile-first", "Otimização de Performance", "Arquitetura de Componentes"] },
-      { "label": "Engenharia", "items": ["TDD", "DevOps & CI/CD"] }
+      { "label": "API & Integração", "items": ["APIs RESTful", "GraphQL", "WebSockets", "Microsserviços", "MongoDB"] },
+      { "label": "Craft Frontend", "items": ["UI/UX", "Acessibilidade", "Mobile-first", "Otimização de Performance", "Arquitetura de Componentes", "Web Components", "SASS/LESS", "Compatibilidade Cross-browser"] },
+      { "label": "Engenharia", "items": ["TDD", "DevOps & CI/CD", "SSR", "Arquitetura Limpa", "Liderança Técnica"] }
     ],
-    "soft_skills": ["Resolução de problemas", "Pensamento crítico", "Colaboração em equipe", "Adaptabilidade"]
+    "soft_skills": [
+      "Entrega de alto valor equilibrando qualidade e ciclos de entrega, com excelente gestão de tempo",
+      "Resolução de problemas e pensamento crítico, otimizando sistemas e enfrentando desafios complexos",
+      "Compartilhamento de conhecimento via code reviews, documentação e pair programming",
+      "Alta adaptabilidade em times remotos, cumprindo prazos e alcançando objetivos de negócio"
+    ]
   },
+  "expertise": [
+    "Atualiza continuamente o conhecimento técnico para se manter na vanguarda das práticas modernas de desenvolvimento.",
+    "Capacidade comprovada de fazer a ponte entre equipes técnicas e stakeholders, garantindo entregas sem atrito.",
+    "Experiência extensiva no desenvolvimento de PWAs e bibliotecas de componentes reutilizáveis, acelerando o desenvolvimento de novos produtos."
+  ],
   "experience": [
+    {
+      "role": "Desenvolvedor Front-End Sênior",
+      "company": "Venturus",
+      "location": "Brasília, Brasil",
+      "period": "Jun 2025 - Presente",
+      "highlights": [
+        { "text": "Mentoro desenvolvedores Jr. na obtenção de novos conhecimentos, na aplicação de metodologias, no pensamento crítico e no bom uso de IA.", "category": "architecture" },
+        { "text": "Desenvolvo fluxos de trabalho de IA para automatizar revisão de código, controle de tarefas, métricas e controle granular de contexto.", "category": "integration" },
+        { "text": "Desenvolvi agentes de IA para análise prévia de bugs no projeto, planejamento com TDD e testes E2E — reduzindo o tempo de elaboração de testes e debug em 60%.", "category": "integration" },
+        { "text": "Desenvolvi ferramentas de marcação de tela com annotations em formato COCO para treinamento de agentes de IA, criação de UI com prompts assertivos e planejamento de tarefas — reduzindo o tempo de planejamento em 90%.", "category": "integration" },
+        { "text": "Desenvolvi MCP Servers com instruções de projeto, contexto de componentes, libraries, design tokens e telas — responsável pela diminuição de AI Slop nos prompts iniciais.", "category": "architecture" },
+        { "text": "Refatoração de arquitetura de áreas legado nos projetos, visando reduzir código ilegível e otimizar features.", "category": "architecture" },
+        { "text": "Criação de componentes complexos com utilização de LLMs e MCP Clients (Claude Code, Cline, etc).", "category": "ui" }
+      ]
+    },
     {
       "role": "Desenvolvedor Front-End Sênior",
       "company": "Ília Digital (JPMC)",
       "location": "Brasília, Brasil",
       "period": "Abr 2022 - Presente",
       "highlights": [
-        { "text": "Projetou solução de documentação estática com Svelte, Vite e processamento de especificação OpenAPI.", "category": "architecture" },
-        { "text": "Construiu PWA para gestão de cartão de crédito e orçamento com Svelte, TS e Storybook.", "category": "ui" },
-        { "text": "Desenvolveu plataforma de documentação interativa com React e Docusaurus.", "category": "architecture" },
-        { "text": "Criou biblioteca de componentes reutilizáveis e padrões de design.", "category": "architecture" },
-        { "text": "Entregou PWAs para gestão de despesas e investimentos imobiliários.", "category": "ui" },
-        { "text": "Construiu MVPs para gestão de API e sistemas bancários integrando Svelte com Lua/Docker.", "category": "integration" }
+        { "text": "Liderou o desenvolvimento de MVP para gestão de contas bancárias, investimentos e participação societária com Svelte, TypeScript, SCSS, Tailwind, Vite, DevContainer e Jest — reduzindo problemas de ciclo de vida em 90%.", "category": "architecture" },
+        { "text": "Entregou PWA para gestão de despesas, transferências e investimentos imobiliários com Svelte, TypeScript, SCSS, Tailwind, Vite, Playwright e Jest — reduzindo o tempo de carregamento em 40% com Lazy Loading e code splitting.", "category": "ui" },
+        { "text": "Projetou e implementou biblioteca de componentes com Svelte, Tailwind, Vite, Jest e Storybook — reduzindo o tempo de desenvolvimento da sprint em 70%.", "category": "architecture" },
+        { "text": "Implementou suite de componentes para documentar endpoints com Svelte, TypeScript, SCSS, Tailwind, Storybook, Vite e Markdown — com melhor performance que Docusaurus + React.", "category": "architecture" },
+        { "text": "Liderou plataforma de documentação interativa com abordagem de microfrontend usando React, Docusaurus, Widdershins, Webpack, Svelte, TypeScript e PostCSS.", "category": "architecture" },
+        { "text": "Construiu PWA de alta performance para gestão de cartão de crédito, pontos, pagamentos e grupos de orçamento com Svelte, TypeScript, SCSS, Tailwind, Vite e Storybook — reduzindo o tempo de sprint em 70% com biblioteca própria no lugar do Material-UI.", "category": "ui" },
+        { "text": "Refatorou a plataforma de documentação estática com Svelte, Vite, TypeScript, PostCSS e Tailwind para processar specs OpenAPI — reduzindo o primeiro carregamento em 60% e o tempo de execução dos scripts de 11s para 1s via SSR e Lazy Loading.", "category": "architecture" },
+        { "text": "Construiu app de documentação SSR com Svelte, Qwik, React e Astro para comparar performance, gerenciamento de estado e tamanho de bundle — capaz de gerar páginas estáticas com componentes CRUD a partir de um JSON.", "category": "architecture" },
+        { "text": "Criou pacote NPM com funcionalidades principais de documentação estática, reutilizável em React, Vue.js, Svelte e Angular — construído com Vite, TypeScript, Jest e Salt-DS.", "category": "architecture" }
       ]
     },
     {
@@ -52,7 +80,7 @@
       "period": "Set 2021 - Abr 2022",
       "highlights": [
         { "text": "Manteve e aprimorou sistemas embarcados para dispositivos de pagamento.", "category": "integration" },
-        { "text": "Utilizou Svelte, JavaScript e Docker para soluções escaláveis.", "category": "devops" }
+        { "text": "Utilizou Svelte, JavaScript e Docker para entregar aplicações escaláveis, reduzindo problemas em telas pequenas em 70%.", "category": "devops" }
       ]
     },
     {
@@ -61,8 +89,9 @@
       "location": "São Paulo, Brasil",
       "period": "Abr 2020 - Set 2021",
       "highlights": [
-        { "text": "Criou landing pages para o BTG Pactual usando React e Gatsby.", "category": "ui" },
-        { "text": "Desenvolveu PWAs para visualização de dados com gráficos dinâmicos.", "category": "data" }
+        { "text": "Criou landing pages para o BTG Pactual usando React, Redux, Gatsby, Styled Components e TypeScript.", "category": "ui" },
+        { "text": "Desenvolveu PWAs para visualização de tendências de dados públicos e privados com React, Redux, Styled Components, D3 Charts e pipeline completo de CI/CD com Jenkins.", "category": "data" },
+        { "text": "Desenvolveu uma API com Node.js e MongoDB para buscar e retornar tendências de dados.", "category": "integration" }
       ]
     },
     {
@@ -71,7 +100,8 @@
       "location": "Rio de Janeiro, Brasil",
       "period": "Jun 2019 - Mar 2020",
       "highlights": [
-        { "text": "Construiu app de cupons de desconto com foco em insights de dados usando React e Next.js.", "category": "data" }
+        { "text": "Construiu app de cupons de desconto com foco em coleta de dados e insights para parceiros do setor usando React, Next.js e Styled Components.", "category": "data" },
+        { "text": "Construiu design system que melhorou o tempo de desenvolvimento em 40% usando React, TypeScript, Storybook, Figma e Jest.", "category": "architecture" }
       ]
     },
     {
