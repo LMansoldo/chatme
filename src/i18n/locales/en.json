@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "chat": "Chat",
+    "experience": "Experience",
+    "skills": "Skills",
+    "exportCV": "Export CV",
+    "tailorCV": "Tailor CV"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "mainStack": "Main Stack"
+  },
+  "chat": {
+    "title": "Ask Me Anything",
+    "description": "Chat with an AI assistant that knows Lucas's full career history.",
+    "emptyHint": "Start by asking one of these:",
+    "placeholder": "Ask about Lucas's experience, skills, or projects…",
+    "suggestions": [
+      "What is Lucas's main tech stack?",
+      "Tell me about his experience at Ília Digital.",
+      "What testing tools does he use?",
+      "What companies has he worked for?"
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "description": "7+ years building financial, data visualization, and documentation platforms.",
+    "graduatedIn": "Graduated"
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Technologies and competencies built over 7+ years of professional development.",
+    "softSkills": "Soft Skills"
+  },
+  "export": {
+    "title": "Export CV as Markdown",
+    "description": "Select the sections to include in your exported file.",
+    "preview": "Preview",
+    "export": "Export .md",
+    "downloaded": "Downloaded!",
+    "download": "Download",
+    "previewTitle": "Preview",
+    "sections": {
+      "summary": "Summary",
+      "skills": "Skills",
+      "experience": "Experience",
+      "education": "Education"
+    }
+  },
+  "tailoring": {
+    "title": "Resume Tailoring",
+    "description": "Paste a job description or keywords to get a version of the CV aligned with the role.",
+    "placeholder": "Paste job description or keywords here…",
+    "tailor": "Tailor My CV",
+    "tailoring": "Tailoring",
+    "tailoredSummary": "Tailored Summary",
+    "tailoredHighlights": "Tailored Highlights",
+    "tryAnother": "Try Another",
+    "exportTailored": "Export Tailored CV",
+    "matchScore": "match score",
+    "bars": {
+      "technologies": "Technologies",
+      "competencies": "Competencies",
+      "soft_skills": "Soft Skills"
+    }
+  }
+}

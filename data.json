@@ -1,0 +1,95 @@
+{
+  "personal_info": {
+    "name": "Lucas Mansoldo de Andrade",
+    "location": "Canoas, Brazil",
+    "email": "lucasmansoldo0@gmail.com",
+    "phone": "+55 21 98030-3612",
+    "linkedin": "https://linkedin.com/lucas-mansoldo"
+  },
+  "objective": {
+    "role": "Senior Front-End Developer",
+    "main_stack": ["Svelte", "React", "TypeScript"]
+  },
+  "summary": "Senior Front-End Developer with extensive experience creating innovative solutions for financial management, data visualization, and interactive documentation. Specialized in Svelte, React, TypeScript, and other cutting-edge technologies.",
+  "skills": {
+    "technologies": [
+      "Svelte", "React", "TypeScript", "JavaScript", "Tailwind", "Next.js", 
+      "Storybook", "Jest", "Docker", "Git", "Webpack", "Jenkins", "Bash", "Node.js", "Lua"
+    ],
+    "technical_competencies": [
+      "RESTful and GraphQL APIs",
+      "UI/UX principles and accessibility",
+      "Mobile-first development",
+      "Performance optimization",
+      "TDD (Jest, Cypress, Playwright)",
+      "Component-based architecture",
+      "DevOps & CI/CD"
+    ],
+    "soft_skills": [
+      "Problem-solving",
+      "Critical thinking",
+      "Team collaboration",
+      "Adaptability"
+    ]
+  },
+  "experience": [
+    {
+      "role": "Senior Front-End Developer",
+      "company": "Ília Digital (JPMC)",
+      "location": "Brasília, Brazil",
+      "period": "Apr 2022 - Present",
+      "highlights": [
+        "Designed static documentation solution using Svelte, Vite, and OpenAPI spec processing.",
+        "Built a PWA for credit card and budget management using Svelte, TS, and Storybook.",
+        "Developed an interactive documentation platform using React and Docusaurus.",
+        "Created a library of reusable components and design patterns.",
+        "Delivered PWAs for expense management and property investments.",
+        "Built MVPs for API management and banking systems integrating Svelte with Lua/Docker."
+      ]
+    },
+    {
+      "role": "Mid Front-End Developer",
+      "company": "Stone Payments",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Sep 2021 - Apr 2022",
+      "highlights": [
+        "Maintained and improved embedded systems for payment devices.",
+        "Leveraged Svelte, JavaScript, and Docker for scalable solutions."
+      ]
+    },
+    {
+      "role": "Mid Front-End Developer",
+      "company": "Decode Data Marketing",
+      "location": "São Paulo, Brazil",
+      "period": "Apr 2020 - Sep 2021",
+      "highlights": [
+        "Created landing pages for BTG Pactual using React and Gatsby.",
+        "Developed PWAs for data visualization using dynamic charts."
+      ]
+    },
+    {
+      "role": "Junior Front-End Developer",
+      "company": "Cuponeria",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Jun 2019 - Mar 2020",
+      "highlights": [
+        "Built a discount coupon app focused on data insights using React and Next.js."
+      ]
+    },
+    {
+      "role": "Junior Front-End Developer",
+      "company": "E-Create",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Jul 2018 - Jun 2019",
+      "highlights": [
+        "Designed and implemented custom WordPress and Moodle themes/plugins."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor’s Degree in Information Systems",
+    "institution": "Universidade Estácio de Sá",
+    "graduation": "Dec 2022"
+  }
+}
+

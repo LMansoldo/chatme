@@ -1,0 +1,92 @@
+{
+  "personal_info": {
+    "name": "Lucas Mansoldo de Andrade",
+    "location": "Canoas, Brasil",
+    "email": "lucasmansoldo0@gmail.com",
+    "phone": "+55 21 98030-3612",
+    "linkedin": "https://linkedin.com/lucas-mansoldo"
+  },
+  "objective": {
+    "role": "Desenvolvedor Front-End Sênior",
+    "main_stack": ["Svelte", "React", "TypeScript"]
+  },
+  "summary": {
+    "headline": "Desenvolvedor Front-End Sênior com 7+ anos construindo plataformas financeiras, de visualização de dados e documentação.",
+    "focus_areas": ["Fintech", "Visualização de Dados", "Documentação Interativa", "Desenvolvimento de PWA"],
+    "tagline": "Especializado em Svelte, React e TypeScript — focado em performance, acessibilidade e arquitetura de componentes escalável."
+  },
+  "skills": {
+    "tech": [
+      { "label": "Frontend", "items": ["Svelte", "React", "Next.js", "Tailwind", "Storybook"] },
+      { "label": "Linguagens", "items": ["TypeScript", "JavaScript", "Lua", "Bash"] },
+      { "label": "Ferramentas", "items": ["Vite", "Webpack", "Docker", "Git", "Jenkins"] },
+      { "label": "Testes", "items": ["Jest", "Cypress", "Playwright"] },
+      { "label": "Runtime", "items": ["Node.js"] }
+    ],
+    "competencies": [
+      { "label": "API & Integração", "items": ["APIs RESTful", "GraphQL"] },
+      { "label": "Craft Frontend", "items": ["UI/UX", "Acessibilidade", "Mobile-first", "Otimização de Performance", "Arquitetura de Componentes"] },
+      { "label": "Engenharia", "items": ["TDD", "DevOps & CI/CD"] }
+    ],
+    "soft_skills": ["Resolução de problemas", "Pensamento crítico", "Colaboração em equipe", "Adaptabilidade"]
+  },
+  "experience": [
+    {
+      "role": "Desenvolvedor Front-End Sênior",
+      "company": "Ília Digital (JPMC)",
+      "location": "Brasília, Brasil",
+      "period": "Abr 2022 - Presente",
+      "highlights": [
+        { "text": "Projetou solução de documentação estática com Svelte, Vite e processamento de especificação OpenAPI.", "category": "architecture" },
+        { "text": "Construiu PWA para gestão de cartão de crédito e orçamento com Svelte, TS e Storybook.", "category": "ui" },
+        { "text": "Desenvolveu plataforma de documentação interativa com React e Docusaurus.", "category": "architecture" },
+        { "text": "Criou biblioteca de componentes reutilizáveis e padrões de design.", "category": "architecture" },
+        { "text": "Entregou PWAs para gestão de despesas e investimentos imobiliários.", "category": "ui" },
+        { "text": "Construiu MVPs para gestão de API e sistemas bancários integrando Svelte com Lua/Docker.", "category": "integration" }
+      ]
+    },
+    {
+      "role": "Desenvolvedor Front-End Pleno",
+      "company": "Stone Payments",
+      "location": "Rio de Janeiro, Brasil",
+      "period": "Set 2021 - Abr 2022",
+      "highlights": [
+        { "text": "Manteve e aprimorou sistemas embarcados para dispositivos de pagamento.", "category": "integration" },
+        { "text": "Utilizou Svelte, JavaScript e Docker para soluções escaláveis.", "category": "devops" }
+      ]
+    },
+    {
+      "role": "Desenvolvedor Front-End Pleno",
+      "company": "Decode Data Marketing",
+      "location": "São Paulo, Brasil",
+      "period": "Abr 2020 - Set 2021",
+      "highlights": [
+        { "text": "Criou landing pages para o BTG Pactual usando React e Gatsby.", "category": "ui" },
+        { "text": "Desenvolveu PWAs para visualização de dados com gráficos dinâmicos.", "category": "data" }
+      ]
+    },
+    {
+      "role": "Desenvolvedor Front-End Júnior",
+      "company": "Cuponeria",
+      "location": "Rio de Janeiro, Brasil",
+      "period": "Jun 2019 - Mar 2020",
+      "highlights": [
+        { "text": "Construiu app de cupons de desconto com foco em insights de dados usando React e Next.js.", "category": "data" }
+      ]
+    },
+    {
+      "role": "Desenvolvedor Front-End Júnior",
+      "company": "E-Create",
+      "location": "Rio de Janeiro, Brasil",
+      "period": "Jul 2018 - Jun 2019",
+      "highlights": [
+        { "text": "Projetou e implementou temas e plugins personalizados para WordPress e Moodle.", "category": "ui" }
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bacharelado em Sistemas de Informação",
+    "institution": "Universidade Estácio de Sá",
+    "graduation": "Dez 2022"
+  }
+}

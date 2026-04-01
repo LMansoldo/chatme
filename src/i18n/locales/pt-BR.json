@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Início",
+    "chat": "Chat",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "exportCV": "Exportar CV",
+    "tailorCV": "Personalizar CV"
+  },
+  "hero": {
+    "greeting": "Olá, sou",
+    "mainStack": "Stack Principal"
+  },
+  "chat": {
+    "title": "Pergunte-me Qualquer Coisa",
+    "description": "Converse com um assistente de IA que conhece toda a trajetória de Lucas.",
+    "emptyHint": "Comece perguntando uma dessas:",
+    "placeholder": "Pergunte sobre experiência, habilidades ou projetos de Lucas…",
+    "suggestions": [
+      "Qual é a stack principal de Lucas?",
+      "Me fale sobre a experiência dele na Ília Digital.",
+      "Quais ferramentas de teste ele usa?",
+      "Em quais empresas ele trabalhou?"
+    ]
+  },
+  "experience": {
+    "title": "Experiência",
+    "description": "7+ anos construindo plataformas financeiras, de visualização de dados e documentação.",
+    "graduatedIn": "Formado em"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "description": "Tecnologias e competências desenvolvidas ao longo de 7+ anos de carreira.",
+    "softSkills": "Soft Skills"
+  },
+  "export": {
+    "title": "Exportar CV como Markdown",
+    "description": "Selecione as seções a incluir no arquivo exportado.",
+    "preview": "Pré-visualizar",
+    "export": "Exportar .md",
+    "downloaded": "Baixado!",
+    "download": "Baixar",
+    "previewTitle": "Pré-visualização",
+    "sections": {
+      "summary": "Resumo",
+      "skills": "Habilidades",
+      "experience": "Experiência",
+      "education": "Formação"
+    }
+  },
+  "tailoring": {
+    "title": "Personalizar Currículo",
+    "description": "Cole uma descrição de vaga ou palavras-chave para obter uma versão do CV alinhada ao cargo.",
+    "placeholder": "Cole aqui a descrição da vaga ou palavras-chave…",
+    "tailor": "Personalizar Meu CV",
+    "tailoring": "Personalizando",
+    "tailoredSummary": "Resumo Personalizado",
+    "tailoredHighlights": "Destaques Personalizados",
+    "tryAnother": "Tentar Outra Vaga",
+    "exportTailored": "Exportar CV Personalizado",
+    "matchScore": "score de compatibilidade",
+    "bars": {
+      "technologies": "Tecnologias",
+      "competencies": "Competências",
+      "soft_skills": "Soft Skills"
+    }
+  }
+}

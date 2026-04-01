@@ -1,0 +1,92 @@
+{
+  "personal_info": {
+    "name": "Lucas Mansoldo de Andrade",
+    "location": "Canoas, Brazil",
+    "email": "lucasmansoldo0@gmail.com",
+    "phone": "+55 21 98030-3612",
+    "linkedin": "https://linkedin.com/lucas-mansoldo"
+  },
+  "objective": {
+    "role": "Senior Front-End Developer",
+    "main_stack": ["Svelte", "React", "TypeScript"]
+  },
+  "summary": {
+    "headline": "Senior Front-End Developer with 7+ years building financial, data visualization, and documentation platforms.",
+    "focus_areas": ["Fintech", "Data Visualization", "Interactive Documentation", "PWA Development"],
+    "tagline": "Specialized in Svelte, React, and TypeScript — focused on performance, accessibility, and scalable component architecture."
+  },
+  "skills": {
+    "tech": [
+      { "label": "Frontend", "items": ["Svelte", "React", "Next.js", "Tailwind", "Storybook"] },
+      { "label": "Languages", "items": ["TypeScript", "JavaScript", "Lua", "Bash"] },
+      { "label": "Tooling", "items": ["Vite", "Webpack", "Docker", "Git", "Jenkins"] },
+      { "label": "Testing", "items": ["Jest", "Cypress", "Playwright"] },
+      { "label": "Runtime", "items": ["Node.js"] }
+    ],
+    "competencies": [
+      { "label": "API & Integration", "items": ["RESTful APIs", "GraphQL"] },
+      { "label": "Frontend Craft", "items": ["UI/UX", "Accessibility", "Mobile-first", "Performance Optimization", "Component Architecture"] },
+      { "label": "Engineering", "items": ["TDD", "DevOps & CI/CD"] }
+    ],
+    "soft_skills": ["Problem-solving", "Critical thinking", "Team collaboration", "Adaptability"]
+  },
+  "experience": [
+    {
+      "role": "Senior Front-End Developer",
+      "company": "Ília Digital (JPMC)",
+      "location": "Brasília, Brazil",
+      "period": "Apr 2022 - Present",
+      "highlights": [
+        { "text": "Designed static documentation solution using Svelte, Vite, and OpenAPI spec processing.", "category": "architecture" },
+        { "text": "Built a PWA for credit card and budget management using Svelte, TS, and Storybook.", "category": "ui" },
+        { "text": "Developed an interactive documentation platform using React and Docusaurus.", "category": "architecture" },
+        { "text": "Created a library of reusable components and design patterns.", "category": "architecture" },
+        { "text": "Delivered PWAs for expense management and property investments.", "category": "ui" },
+        { "text": "Built MVPs for API management and banking systems integrating Svelte with Lua/Docker.", "category": "integration" }
+      ]
+    },
+    {
+      "role": "Mid Front-End Developer",
+      "company": "Stone Payments",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Sep 2021 - Apr 2022",
+      "highlights": [
+        { "text": "Maintained and improved embedded systems for payment devices.", "category": "integration" },
+        { "text": "Leveraged Svelte, JavaScript, and Docker for scalable solutions.", "category": "devops" }
+      ]
+    },
+    {
+      "role": "Mid Front-End Developer",
+      "company": "Decode Data Marketing",
+      "location": "São Paulo, Brazil",
+      "period": "Apr 2020 - Sep 2021",
+      "highlights": [
+        { "text": "Created landing pages for BTG Pactual using React and Gatsby.", "category": "ui" },
+        { "text": "Developed PWAs for data visualization using dynamic charts.", "category": "data" }
+      ]
+    },
+    {
+      "role": "Junior Front-End Developer",
+      "company": "Cuponeria",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Jun 2019 - Mar 2020",
+      "highlights": [
+        { "text": "Built a discount coupon app focused on data insights using React and Next.js.", "category": "data" }
+      ]
+    },
+    {
+      "role": "Junior Front-End Developer",
+      "company": "E-Create",
+      "location": "Rio de Janeiro, Brazil",
+      "period": "Jul 2018 - Jun 2019",
+      "highlights": [
+        { "text": "Designed and implemented custom WordPress and Moodle themes/plugins.", "category": "ui" }
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor's Degree in Information Systems",
+    "institution": "Universidade Estácio de Sá",
+    "graduation": "Dec 2022"
+  }
+}
