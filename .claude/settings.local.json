@@ -14,7 +14,9 @@
       "WebFetch(domain:www.npmjs.com)",
       "Bash(ls /Users/lucasmansoldo/Projects/lucas-mansoldo/src/*.json)",
       "Bash(ls /Users/lucasmansoldo/Projects/lucas-mansoldo/*.json)",
-      "Bash(xargs ls:*)"
+      "Bash(xargs ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
     ]
   }
 }
